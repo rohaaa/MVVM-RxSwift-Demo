@@ -12,6 +12,22 @@
 		41C829922A01230100321F2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829912A01230100321F2E /* ViewController.swift */; };
 		41C829972A01230300321F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41C829962A01230300321F2E /* Assets.xcassets */; };
 		41C8299A2A01230300321F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41C829982A01230300321F2E /* LaunchScreen.storyboard */; };
+		41C829AF2A0150F600321F2E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 41C829AE2A0150F600321F2E /* Moya */; };
+		41C829B12A0150F600321F2E /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 41C829B02A0150F600321F2E /* RxMoya */; };
+		41C829B42A01511600321F2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 41C829B32A01511600321F2E /* Kingfisher */; };
+		41C829B62A01515600321F2E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829B52A01515600321F2E /* ListViewController.swift */; };
+		41C829B92A0151DE00321F2E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 41C829B82A0151DE00321F2E /* SnapKit */; };
+		41C829BF2A01536300321F2E /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829BE2A01536300321F2E /* ListViewModel.swift */; };
+		41C829C22A01580700321F2E /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829C12A01580700321F2E /* CellView.swift */; };
+		41C829C42A01583400321F2E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829C32A01583400321F2E /* TableViewCell.swift */; };
+		41C829C62A01588900321F2E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829C52A01588900321F2E /* DetailsViewController.swift */; };
+		41C829C82A0158BC00321F2E /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829C72A0158BC00321F2E /* DetailsViewModel.swift */; };
+		41C829CB2A0158E000321F2E /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829CA2A0158E000321F2E /* Launch.swift */; };
+		41C829CD2A0158FF00321F2E /* SpaceXAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829CC2A0158FF00321F2E /* SpaceXAPI.swift */; };
+		41C829CF2A01591D00321F2E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829CE2A01591D00321F2E /* APIService.swift */; };
+		41C829D22A015A2600321F2E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 41C829D12A015A2600321F2E /* RxCocoa */; };
+		41C829D42A015A2600321F2E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 41C829D32A015A2600321F2E /* RxSwift */; };
+		41C829D62A015E5500321F2E /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C829D52A015E5500321F2E /* CellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +38,16 @@
 		41C829962A01230300321F2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41C829992A01230300321F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41C8299B2A01230300321F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41C829B52A01515600321F2E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		41C829BE2A01536300321F2E /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		41C829C12A01580700321F2E /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		41C829C32A01583400321F2E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		41C829C52A01588900321F2E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		41C829C72A0158BC00321F2E /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		41C829CA2A0158E000321F2E /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		41C829CC2A0158FF00321F2E /* SpaceXAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPI.swift; sourceTree = "<group>"; };
+		41C829CE2A01591D00321F2E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		41C829D52A015E5500321F2E /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +55,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C829D42A015A2600321F2E /* RxSwift in Frameworks */,
+				41C829B42A01511600321F2E /* Kingfisher in Frameworks */,
+				41C829B12A0150F600321F2E /* RxMoya in Frameworks */,
+				41C829D22A015A2600321F2E /* RxCocoa in Frameworks */,
+				41C829AF2A0150F600321F2E /* Moya in Frameworks */,
+				41C829B92A0151DE00321F2E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +129,8 @@
 		41C829A42A01464A00321F2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				41C829C02A0157F000321F2E /* TableView */,
+				41C829B52A01515600321F2E /* ListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,6 +138,8 @@
 		41C829A52A01465500321F2E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				41C829BE2A01536300321F2E /* ListViewModel.swift */,
+				41C829D52A015E5500321F2E /* CellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -111,6 +147,9 @@
 		41C829A62A01468100321F2E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				41C829C92A0158D000321F2E /* Model */,
+				41C829CC2A0158FF00321F2E /* SpaceXAPI.swift */,
+				41C829CE2A01591D00321F2E /* APIService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -118,6 +157,7 @@
 		41C829A72A01470000321F2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				41C829C52A01588900321F2E /* DetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +165,7 @@
 		41C829A82A01471200321F2E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				41C829C72A0158BC00321F2E /* DetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,6 +173,23 @@
 		41C829A92A0147D900321F2E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		41C829C02A0157F000321F2E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				41C829C12A01580700321F2E /* CellView.swift */,
+				41C829C32A01583400321F2E /* TableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		41C829C92A0158D000321F2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41C829CA2A0158E000321F2E /* Launch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +210,14 @@
 			dependencies = (
 			);
 			name = "MVVM-RxSwift-Demo";
+			packageProductDependencies = (
+				41C829AE2A0150F600321F2E /* Moya */,
+				41C829B02A0150F600321F2E /* RxMoya */,
+				41C829B32A01511600321F2E /* Kingfisher */,
+				41C829B82A0151DE00321F2E /* SnapKit */,
+				41C829D12A015A2600321F2E /* RxCocoa */,
+				41C829D32A015A2600321F2E /* RxSwift */,
+			);
 			productName = "MVVM-RxSwift-Demo";
 			productReference = 41C8298A2A01230100321F2E /* MVVM-RxSwift-Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +246,12 @@
 				Base,
 			);
 			mainGroup = 41C829812A01230100321F2E;
+			packageReferences = (
+				41C829AD2A0150F600321F2E /* XCRemoteSwiftPackageReference "Moya" */,
+				41C829B22A01511600321F2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				41C829B72A0151DE00321F2E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				41C829D02A015A2500321F2E /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 41C8298B2A01230100321F2E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -207,8 +279,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				41C829922A01230100321F2E /* ViewController.swift in Sources */,
+				41C829C42A01583400321F2E /* TableViewCell.swift in Sources */,
+				41C829C62A01588900321F2E /* DetailsViewController.swift in Sources */,
+				41C829CB2A0158E000321F2E /* Launch.swift in Sources */,
+				41C829CD2A0158FF00321F2E /* SpaceXAPI.swift in Sources */,
 				41C8298E2A01230100321F2E /* AppDelegate.swift in Sources */,
+				41C829BF2A01536300321F2E /* ListViewModel.swift in Sources */,
+				41C829B62A01515600321F2E /* ListViewController.swift in Sources */,
+				41C829CF2A01591D00321F2E /* APIService.swift in Sources */,
+				41C829C82A0158BC00321F2E /* DetailsViewModel.swift in Sources */,
 				41C829902A01230100321F2E /* SceneDelegate.swift in Sources */,
+				41C829D62A015E5500321F2E /* CellViewModel.swift in Sources */,
+				41C829C22A01580700321F2E /* CellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +500,74 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41C829AD2A0150F600321F2E /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		41C829B22A01511600321F2E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		41C829B72A0151DE00321F2E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		41C829D02A015A2500321F2E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41C829AE2A0150F600321F2E /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41C829AD2A0150F600321F2E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		41C829B02A0150F600321F2E /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41C829AD2A0150F600321F2E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		41C829B32A01511600321F2E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41C829B22A01511600321F2E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		41C829B82A0151DE00321F2E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41C829B72A0151DE00321F2E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		41C829D12A015A2600321F2E /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41C829D02A015A2500321F2E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		41C829D32A015A2600321F2E /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41C829D02A015A2500321F2E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 41C829822A01230100321F2E /* Project object */;
 }

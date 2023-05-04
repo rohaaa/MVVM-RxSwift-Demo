@@ -19,6 +19,8 @@ class DetailsViewController: UIViewController {
     private let descriptionTextView = UITextView()
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
     
+    weak var coordinator: DetailsCoordinator?
+    
     init(viewModel: DetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -36,6 +38,16 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if isMovingFromParent {
+            coordinator?.didFinishDetails()
+            // alternate option:
+//            coordinator?.parentCoordinator?.childDidFinish(coordinator!)
+        }
     }
     
     private func setUp() {
@@ -100,7 +112,7 @@ class DetailsViewController: UIViewController {
         "No description available"
         
         if let imageUrl = viewModel.launch.links?.patch.large,
-            let url = URL(string: imageUrl) {
+           let url = URL(string: imageUrl) {
             
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
@@ -110,16 +122,16 @@ class DetailsViewController: UIViewController {
                 placeholder: nil,
                 options: nil,
                 completionHandler: { [weak self] result in
-                switch result {
-                case .success(_):
-                    self?.activityIndicator.stopAnimating()
-                    self?.activityIndicator.isHidden = true
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    self?.activityIndicator.stopAnimating()
-                    self?.activityIndicator.isHidden = true
-                }
-            })
+                    switch result {
+                    case .success(_):
+                        self?.activityIndicator.stopAnimating()
+                        self?.activityIndicator.isHidden = true
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        self?.activityIndicator.stopAnimating()
+                        self?.activityIndicator.isHidden = true
+                    }
+                })
         }
     }
 }

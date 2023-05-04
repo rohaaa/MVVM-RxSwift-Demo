@@ -16,10 +16,10 @@ final class ListViewModel {
     
     let launches = BehaviorRelay<[Launch]>(value: [])
     let isLoading = BehaviorRelay<Bool>(value: false)
-    
+        
     let navigationTitle: String = "List"
     
-    init(apiService: APIServiceProtocol = APIService()) {
+    init(apiService: APIServiceProtocol) {
         self.apiService = apiService
     }
     

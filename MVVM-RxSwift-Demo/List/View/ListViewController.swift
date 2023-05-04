@@ -13,12 +13,19 @@ import Moya
 
 class ListViewController: UIViewController {
     private let tableView = UITableView()
-    private let viewModel = ListViewModel()
+    private let viewModel: ListViewModel
     private let disposeBag = DisposeBag()
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    weak var coordinator: ListCoordinator?
+    
+    init(viewModel: ListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -50,6 +57,17 @@ class ListViewController: UIViewController {
         tableView.rowHeight = 80
     }
     
+    private func showDetails(for launch: Launch) {
+        coordinator?.showDetails(for: launch)
+        
+        if let selectedRowIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedRowIndexPath, animated: true)
+        }
+    }
+}
+
+// MARK: - RxSwift Binding
+extension ListViewController {
     private func bind() {
         viewModel.launches
             .asDriver(onErrorJustReturn: [])
@@ -65,10 +83,6 @@ class ListViewController: UIViewController {
             .asDriver()
             .drive(onNext: { [weak self] launch in
                 self?.showDetails(for: launch)
-                
-                if let selectedRowIndexPath = self?.tableView.indexPathForSelectedRow {
-                    self?.tableView.deselectRow(at: selectedRowIndexPath, animated: true)
-                }
             })
             .disposed(by: disposeBag)
         
@@ -89,11 +103,5 @@ class ListViewController: UIViewController {
             .map { !$0 }
             .drive(activityIndicator.rx.isHidden)
             .disposed(by: disposeBag)
-    }
-    
-    private func showDetails(for launch: Launch) {
-        let viewModel = DetailsViewModel(launch: launch)
-        let viewController = DetailsViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }

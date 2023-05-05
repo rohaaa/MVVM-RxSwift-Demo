@@ -16,7 +16,11 @@ final class ListViewModel {
     
     let launches = BehaviorRelay<[Launch]>(value: [])
     let isLoading = BehaviorRelay<Bool>(value: false)
-        
+    
+    private let currentPage = BehaviorRelay<Int>(value: 1)
+    private let isLastPage = BehaviorRelay<Bool>(value: false)
+    private let pageSize = 20
+    
     let navigationTitle: String = "List"
     
     init(apiService: APIServiceProtocol) {
@@ -24,13 +28,24 @@ final class ListViewModel {
     }
     
     func fetchLaunches() {
+        guard !isLastPage.value else { return }
         isLoading.accept(true)
         
-        apiService.fetchLaunches()
+        let query: [String: Any] = [:]
+        let options: [String: Any] = ["limit": pageSize, "page": currentPage.value]
+        
+        apiService.fetchLaunches(query: query, options: options)
             .subscribe(
                 onSuccess: { [weak self] launches in
-                    self?.isLoading.accept(false)
-                    self?.launches.accept(launches.sorted { $0.date < $1.date })
+                    guard let self = self else { return }
+                    
+                    self.isLoading.accept(false)
+                    self.isLastPage.accept(launches.count < self.pageSize)
+                    
+                    let updatedLaunches = self.launches.value + launches.sorted { $0.date < $1.date }
+                    
+                    self.launches.accept(updatedLaunches)
+                    self.currentPage.accept(self.currentPage.value + 1)
                 },
                 onFailure: { [weak self] error in
                     self?.isLoading.accept(false)

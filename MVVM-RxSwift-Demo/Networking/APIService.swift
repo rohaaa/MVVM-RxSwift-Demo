@@ -11,14 +11,15 @@ import RxMoya
 import RxSwift
 
 protocol APIServiceProtocol {
-    func fetchLaunches() -> Single<[Launch]>
+    func fetchLaunches(query: [String: Any], options: [String: Any]) -> Single<[Launch]>
 }
 
 class APIService: APIServiceProtocol {
     private let provider = MoyaProvider<SpaceXAPI>()
     
-    func fetchLaunches() -> Single<[Launch]> {
-        return provider.rx.request(.getLaunches)
+    func fetchLaunches(query: [String: Any], options: [String: Any]) -> Single<[Launch]> {
+        return provider.rx.request(
+            .getLaunches(query: query, options: options))
             .filterSuccessfulStatusCodes()
             .map([Launch].self,
                  atKeyPath: "docs",

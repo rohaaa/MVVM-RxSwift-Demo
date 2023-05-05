@@ -86,12 +86,17 @@ extension ListViewController {
             })
             .disposed(by: disposeBag)
         
-//        tableView.rx
-//            .itemSelected
-//            .bind { [weak self] indexPath in
-//
-//            }
-//            .disposed(by: disposeBag)
+        tableView.rx.prefetchRows
+            .asDriver()
+            .withLatestFrom(viewModel.launches.asDriver()) { indexPaths, launches in
+                guard let maxRow = indexPaths.map({ $0.row }).max() else { return false }
+                return maxRow >= launches.count - 1
+            }
+            .filter { $0 }
+            .drive(onNext: { [weak self] _ in
+                self?.viewModel.fetchLaunches()
+            })
+            .disposed(by: disposeBag)
         
         viewModel.isLoading
             .asDriver()

@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum SpaceXAPI {
-    case getLaunches
+    case getLaunches(query: [String: Any], options: [String: Any])
 }
 
 extension SpaceXAPI: TargetType {
@@ -20,21 +20,24 @@ extension SpaceXAPI: TargetType {
     var path: String {
         switch self {
         case .getLaunches:
-            return "/launches"
+            return "/launches/query"
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .getLaunches:
-            return .get
+            return .post
         }
     }
     
     var task: Task {
         switch self {
-        case .getLaunches:
-            return .requestPlain
+        case .getLaunches(let query, let options):
+            return .requestParameters(
+                parameters: ["query": query,
+                             "options": options],
+                encoding: URLEncoding.default)
         }
     }
     

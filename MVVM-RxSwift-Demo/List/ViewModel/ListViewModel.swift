@@ -17,10 +17,13 @@ final class ListViewModel {
     let launches = BehaviorRelay<[Launch]>(value: [])
     let isLoading = BehaviorRelay<Bool>(value: false)
     
+    // TODO: error handling
+    let error = BehaviorRelay<Error?>(value: nil)
+    
     private let currentPage = BehaviorRelay<Int>(value: 1)
     private let isLastPage = BehaviorRelay<Bool>(value: false)
     private let pageSize = 20
-    
+        
     let navigationTitle: String = "List"
     
     init(apiService: APIServiceProtocol) {
@@ -49,6 +52,7 @@ final class ListViewModel {
                 },
                 onFailure: { [weak self] error in
                     self?.isLoading.accept(false)
+                    self?.error.accept(error)
                     print(error.localizedDescription)
                 })
             .disposed(by: disposeBag)

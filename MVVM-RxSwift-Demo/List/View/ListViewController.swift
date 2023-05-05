@@ -56,13 +56,21 @@ class ListViewController: UIViewController {
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         tableView.rowHeight = 80
     }
-    
+
     private func showDetails(for launch: Launch) {
         coordinator?.showDetails(for: launch)
         
         if let selectedRowIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedRowIndexPath, animated: true)
         }
+    }
+    
+    private func showError(_ error: AppError) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: error.localizedDescription,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alertController, animated: true)
     }
 }
 
@@ -107,6 +115,15 @@ extension ListViewController {
             .asDriver()
             .map { !$0 }
             .drive(activityIndicator.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.error
+            .asDriver()
+            .drive(onNext: { [weak self] error in
+                if let error = error {
+                    self?.showError(error)
+                }
+            })
             .disposed(by: disposeBag)
     }
 }

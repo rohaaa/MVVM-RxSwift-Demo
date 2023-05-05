@@ -17,13 +17,12 @@ final class ListViewModel {
     let launches = BehaviorRelay<[Launch]>(value: [])
     let isLoading = BehaviorRelay<Bool>(value: false)
     
-    // TODO: error handling
-    let error = BehaviorRelay<Error?>(value: nil)
+    let error = BehaviorRelay<AppError?>(value: nil)
     
-    private let currentPage = BehaviorRelay<Int>(value: 1)
-    private let isLastPage = BehaviorRelay<Bool>(value: false)
+    private var currentPage = 1
+    private var isLastPage = false
     private let pageSize = 20
-        
+    
     let navigationTitle: String = "List"
     
     init(apiService: APIServiceProtocol) {
@@ -31,11 +30,11 @@ final class ListViewModel {
     }
     
     func fetchLaunches() {
-        guard !isLastPage.value else { return }
+        guard !isLastPage else { return }
         isLoading.accept(true)
         
         let query: [String: Any] = [:]
-        let options: [String: Any] = ["limit": pageSize, "page": currentPage.value]
+        let options: [String: Any] = ["limit": pageSize, "page": currentPage]
         
         apiService.fetchLaunches(query: query, options: options)
             .subscribe(
@@ -43,17 +42,20 @@ final class ListViewModel {
                     guard let self = self else { return }
                     
                     self.isLoading.accept(false)
-                    self.isLastPage.accept(launches.count < self.pageSize)
+                    self.isLastPage = launches.count < self.pageSize
                     
                     let updatedLaunches = self.launches.value + launches.sorted { $0.date < $1.date }
                     
                     self.launches.accept(updatedLaunches)
-                    self.currentPage.accept(self.currentPage.value + 1)
+                    self.currentPage += 1
                 },
                 onFailure: { [weak self] error in
                     self?.isLoading.accept(false)
-                    self?.error.accept(error)
-                    print(error.localizedDescription)
+                    if let appError = error as? AppError {
+                        self?.error.accept(appError)
+                    } else {
+                        self?.error.accept(.requestFailed)
+                    }
                 })
             .disposed(by: disposeBag)
     }

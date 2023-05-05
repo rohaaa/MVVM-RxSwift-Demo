@@ -8,7 +8,6 @@
 import XCTest
 import RxSwift
 import RxCocoa
-import Moya
 @testable import MVVM_RxSwift_Demo
 
 class ListViewModelTests: XCTestCase {
@@ -43,6 +42,12 @@ class ListViewModelTests: XCTestCase {
                 XCTAssertEqual(launches[0].id, "1")
                 XCTAssertEqual(launches[1].id, "2")
                 expectation.fulfill()
+            })
+            .disposed(by: disposeBag)
+        
+        sut.error
+            .subscribe(onNext: { error in
+                XCTAssertNil(error)
             })
             .disposed(by: disposeBag)
         
@@ -93,14 +98,15 @@ class ListViewModelTests: XCTestCase {
     }
     
     func testFetchLaunches_Error() {
-        let expectation = XCTestExpectation(description: "Error handled and isLoading set to false")
+        let expectation = XCTestExpectation(description: "Error emitted")
         
-        mockAPIService.error = MoyaError.requestMapping("Error")
+        mockAPIService.error = .requestFailed
         
         sut.error
             .skip(1)
             .subscribe(onNext: { error in
                 XCTAssertNotNil(error)
+                XCTAssertEqual(error, AppError.requestFailed)
                 expectation.fulfill()
             })
             .disposed(by: disposeBag)
@@ -112,7 +118,7 @@ class ListViewModelTests: XCTestCase {
 
 class MockAPIService: APIServiceProtocol {
     var launches: [Launch] = []
-    var error: MoyaError?
+    var error: AppError?
     
     func fetchLaunches(query: [String: Any], options: [String: Any]) -> Single<[Launch]> {
         if let error = error {

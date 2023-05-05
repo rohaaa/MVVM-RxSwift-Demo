@@ -21,13 +21,17 @@ class APIService: APIServiceProtocol {
         return provider.rx.request(
             .getLaunches(query: query, options: options))
             .filterSuccessfulStatusCodes()
-            .map([Launch].self,
-                 atKeyPath: "docs",
-                 using: JSONDecoder(),
-                 failsOnEmptyData: false)
+            .map { response in
+                do {
+                    let launches = try response.map([Launch].self, atKeyPath: "docs", using: JSONDecoder(), failsOnEmptyData: false)
+                    return launches
+                } catch {
+                    throw AppError.parsingFailed
+                }
+            }
             .catch { error -> Single<[Launch]> in
                 print(error.localizedDescription)
-                return Single.just([])
+                return Single.error(AppError.requestFailed)
             }
     }
 }

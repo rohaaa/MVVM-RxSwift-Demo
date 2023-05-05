@@ -148,11 +148,11 @@
 		41C8298C2A01230100321F2E /* MVVM-RxSwift-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				416525EA2A052DB30066B3CF /* Helpers */,
-				416525E92A03F7A40066B3CF /* Coordinator */,
 				41C829A12A0145FF00321F2E /* List */,
 				41C829A22A01461D00321F2E /* Details */,
 				41C829A62A01468100321F2E /* Networking */,
+				416525E92A03F7A40066B3CF /* Coordinator */,
+				416525EA2A052DB30066B3CF /* Helpers */,
 				41C8298D2A01230100321F2E /* AppDelegate.swift */,
 				41C8298F2A01230100321F2E /* SceneDelegate.swift */,
 				41C829962A01230300321F2E /* Assets.xcassets */,

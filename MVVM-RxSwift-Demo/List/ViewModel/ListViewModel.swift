@@ -51,11 +51,7 @@ final class ListViewModel {
                 },
                 onFailure: { [weak self] error in
                     self?.isLoading.accept(false)
-                    if let appError = error as? AppError {
-                        self?.error.accept(appError)
-                    } else {
-                        self?.error.accept(.requestFailed)
-                    }
+                    self?.error.accept(error as? AppError)
                 })
             .disposed(by: disposeBag)
     }

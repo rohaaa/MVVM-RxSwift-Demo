@@ -31,7 +31,11 @@ class APIService: APIServiceProtocol {
             }
             .catch { error -> Single<[Launch]> in
                 print(error.localizedDescription)
-                return Single.error(AppError.requestFailed)
+                if let appError = error as? AppError {
+                    return Single.error(appError)
+                } else {
+                    return Single.error(AppError.requestFailed)
+                }
             }
     }
 }

@@ -1,6 +1,6 @@
 # Advanced Swift Architecture: MVVM-C, RxSwift, Moya, SnapKit with Unit Tests
 
-This repository showcases an advanced Swift application structure leveraging MVVM, RxSwift, Moya, and SnapKit frameworks, complemented by unit tests for code reliability.
+This repository showcases an advanced Swift application structure leveraging MVVM-C, RxSwift, Moya, and SnapKit frameworks, complemented by unit tests for code reliability.
 
 ## Key Implementations:
 

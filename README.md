@@ -4,9 +4,9 @@ This repository showcases an advanced Swift application structure leveraging MVV
 
 ## Key Implementations:
 
-- **REST API:** *Utilized to display a list of SpaceX launches.*
-- **Pagination:** *Implemented to optimize performance while maintaining sort order of launches.*
-- **Error Handling:** *Responsible for reporting whether an error is related to the API request or parsing the received data.*
+- **REST API:** Utilized to display a list of SpaceX launches.
+- **Pagination:** Implemented to optimize performance while maintaining sort order of launches.
+- **Error Handling:** Responsible for reporting whether an error is related to the API request or parsing the received data.
 
 ## Walkthrough: 
 
